@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/mystyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="register.html">Register</a>
+        </li>
+        
+    </ul>
+
+    <h1>The Fashion Pet</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum eligendi nihil in quaerat repudiandae hic unde architecto aliquam beatae vel?</p>
+    
+    <main>
+      <!--create the form with inputs for the next fields: 
+      name,age,gender,breed,service,owner,contact
+      register button
+      -->
+      <div class="container">
+        <h2>Add a new pet</h2>
+        <input class="form-control" type="text" id="txtName" placeholder="Enter pet's name">
+        <input class="form-control" type="number" id="txtAge" placeholder="Enter pet's age">
+        <input class="form-control" type="text" id="txtGender" placeholder="Enter pet's gender">
+        <input class="form-control" type="text" id="txtBreed" placeholder="Enter pet's breed">
+        <select class="form-select" id="selService">
+          <option value="" selected disabled>-- Select an option --</option>
+          <option value="nails">💅 Nails cut</option>
+          <option value="vaccines">💉 Vaccines</option>
+          <option value="grooming">🚿 Grooming</option>
+        </select>
+        <input class="form-control" type="text" id="txtOwner" placeholder="Enter owner's name">
+        <input class="form-control" type="tel" id="txtPhone" placeholder="Enter contact phone">
+        <button class="btn btn-warning" onclick="register();">Register</button>
+      </div>
+
+    </main>
+
+    <script src="scripts/register.js"></script>
+</body>
+</html>
