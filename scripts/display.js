@@ -5,9 +5,10 @@ function displayCards(){
         let pet = petSalon.pets[i];
         //create the HTML tmp for card
         card+=` 
-            <div class="pet">
+            <div id="${pet.id}" class="pet">
                 <h6>${pet.name}</h6>
                 <p> Age: ${pet.age}</p>
+                <button onclick="deletePet(${pet.id})">Delete</button>
             </div>
         `;
         
@@ -15,4 +16,7 @@ function displayCards(){
     console.log(card);
     //append the tmp on the html
     document.getElementById("pets").innerHTML=card;
+}
+function displayTable(){
+    console.log(" This is your table function ");
 }

@@ -9,7 +9,7 @@ let petSalon = {
     },
     pets:[]
 }
-
+let c=0; // this is a counter
 //create the constructor
 //<----------parameters (local vars)---------> 
 function Pet(name,age,gender,breed,service,owner,phone){
@@ -20,6 +20,7 @@ function Pet(name,age,gender,breed,service,owner,phone){
     this.service=service;
     this.ownerName=owner;//**** 
     this.contactPhone=phone;//****
+    this.id=c++;//increase 1 by 1
 }
 //create pets
 let pet1 = new Pet("Scooby",60," Male","Dane","Grooming","Shaggy","555-5555-555");
@@ -63,6 +64,7 @@ function register(){
         petSalon.pets.push(thePet);
         //display the pets
         displayCards();
+        //displayTable();
         //display the petSalon.pets array
         console.log(petSalon.pets);
         clearForm();
@@ -80,11 +82,25 @@ function clearForm(){
     inputPhone.value="";
 }
 
+function deletePet(aPetID){
+    console.log("Deleting the pet " + aPetID);
+    document.getElementById(aPetID).remove();// delete the card from the HTML
+    let deleteIndex;
+    for(let i=0;i<petSalon.length;i++){
+        let pet = petSalon.pets[i];
+        if(pet.id==aPetID){
+            deleteIndex=i;
+        }
+    }
+    petSalon.pets.splice(deleteIndex,1);
+}
+
 function init(){
     // this is the main function
     console.log("init");
     petSalon.pets.push(pet1,pet2);
     displayCards();
+    //displayTable();
 }
 
 window.onload=init;
