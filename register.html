@@ -33,23 +33,28 @@
       -->
       <div class="container">
         <h2>Add a new pet</h2>
-        <input class="form-control" type="text" id="txtName" placeholder="Enter pet's name">
+        <input class="form-control" type="text" id="txtName" placeholder="Enter pet's name *">
         <input class="form-control" type="number" id="txtAge" placeholder="Enter pet's age">
         <input class="form-control" type="text" id="txtGender" placeholder="Enter pet's gender">
         <input class="form-control" type="text" id="txtBreed" placeholder="Enter pet's breed">
         <select class="form-select" id="selService">
-          <option value="" selected disabled>-- Select an option --</option>
+          <option value="" selected disabled>-- Select an option -- *</option>
           <option value="nails">💅 Nails cut</option>
           <option value="vaccines">💉 Vaccines</option>
           <option value="grooming">🚿 Grooming</option>
         </select>
         <input class="form-control" type="text" id="txtOwner" placeholder="Enter owner's name">
-        <input class="form-control" type="tel" id="txtPhone" placeholder="Enter contact phone">
+        <input class="form-control" type="tel" id="txtPhone" placeholder="Enter contact phone *">
         <button class="btn btn-warning" onclick="register();">Register</button>
       </div>
 
-    </main>
+      <div id="pets">
+        <!-- the pets will be displayed here-->
+      </div>
 
+    </main>
+    <script src="scripts/display.js"></script>
     <script src="scripts/register.js"></script>
+    
 </body>
 </html>

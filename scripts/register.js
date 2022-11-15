@@ -24,7 +24,7 @@ function Pet(name,age,gender,breed,service,owner,phone){
 //create pets
 let pet1 = new Pet("Scooby",60," Male","Dane","Grooming","Shaggy","555-5555-555");
 let pet2 = new Pet("Scrappy",50,"Male","Mixed","Vaccine","Shaggy","555-5555-555");
-petSalon.pets.push(pet1,pet2);
+
 //register function
 //getting the inputs
 let inputName = document.getElementById("txtName");
@@ -35,16 +35,56 @@ let inputService = document.getElementById("selService");
 let inputOwner = document.getElementById("txtOwner");
 let inputPhone = document.getElementById("txtPhone");
 
-function register(){
-    //get the values
-    
-    //create the obj
-    let thePet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
-    //display the obj
-    console.log(thePet);
-    //push obj into the array
-    petSalon.pets.push(thePet);
-    //display the petSalon.pets array
-    console.log(petSalon.pets);
+function isValid(aPet){
+    let valid=true;
+    //clearing the input borders
+    inputName.classList.remove("error");
+    inputService.classList.remove("error");
+    //check the conditions
+    if(aPet.name==""){
+        valid=false;
+        inputName.classList.add("error");
+    }
+    if(aPet.service==""){
+        valid=false;
+        inputService.classList.add("error");
+    }
+    // ***** HW: add the validation for the phone
+
+    return valid;
 }
 
+function register(){    
+    //getting values and creating the obj
+    let thePet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
+    //validating thePet
+    if(isValid(thePet)==true){
+        //push obj into the array
+        petSalon.pets.push(thePet);
+        //display the pets
+        displayCards();
+        //display the petSalon.pets array
+        console.log(petSalon.pets);
+        clearForm();
+    }
+}
+
+function clearForm(){
+    //clear the text in the inputs
+    inputName.value="";
+    inputAge.value="";
+    inputGender.value="";
+    inputBreed.value="";
+    inputService.value="";
+    inputOwner.value="";
+    inputPhone.value="";
+}
+
+function init(){
+    // this is the main function
+    console.log("init");
+    petSalon.pets.push(pet1,pet2);
+    displayCards();
+}
+
+window.onload=init;
